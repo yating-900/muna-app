@@ -6,21 +6,14 @@
     <title>Muna - 女性健康管家</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
-    <meta name="theme-color" content="#EFEAE2">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="theme-color" content="#EF    <link rel="preconnect" href="https://EAE2">
+fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #EFEAE2;
             --bg-card: #E6DED3;
-            --bg-card-alt: #DDD4C8;
-            --bg-dark: #3F2E23;
-            --bg-dark-secondary: #4A372A;
-            --text-dark: #F2EEE2;
-            --bg-card-alt: #DDD4C8;
-            --bg-dark-secondary: #4A372A;
-            --text-dark: #F2EEE6;
             --bg-card-alt: #DDD4C8;
             --bg-dark: #3F2E23;
             --bg-dark-secondary: #4A372A;
@@ -87,7 +80,6 @@
             height: 36px;
             border-radius: 50%;
             background: var(--bg-card);
-            background: var(--bg-dark);
             border: none;
             font-size: 16px;
             cursor: pointer;
@@ -104,7 +96,7 @@
         }
         .page.active { display: block; }
 
-        /* Status Card */
+        /* Status Card - Dark */
         .status-card {
             background: var(--bg-dark);
             border-radius: var(--radius-lg);
@@ -127,7 +119,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
+            font-size: 20px;
             background: var(--bg-dark-secondary);
             color: var(--text-dark);
         }
@@ -152,7 +144,7 @@
         }
 
         .status-item {
-            background: var(--bg-dark-secondary);
+            background: var(--bg-card-alt);
             padding: 14px 10px;
             border-radius: var(--radius-sm);
             text-align: center;
@@ -170,11 +162,11 @@
             color: var(--text);
         }
 
-        /* AI Card - Light */
+        /* AI Card */
         .ai-card {
-            background: var(--bg-dark);
-            border-radius: 22px;
-            padding: 24px;
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 20px;
             margin: 0 16px 16px;
             box-shadow: var(--shadow);
         }
@@ -183,11 +175,11 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .ai-header span:first-child { font-size: 16px; }
-        .ai-header span { font-weight: 500; font-size: 14px; color: var(--text-dark); font-family: var(--font-serif); }
+        .ai-header span { font-weight: 500; font-size: 14px; color: var(--text); }
         .ai-badge {
             border: 1px solid var(--accent);
             color: var(--accent);
@@ -200,18 +192,17 @@
 
         .ai-list { list-style: none; }
         .ai-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(242, 238, 230, 0.1);
+            padding: 10px 0;
+            border-bottom: 1px solid var(--divider);
             display: flex;
             align-items: flex-start;
             gap: 10px;
             font-size: 13px;
-            line-height: 1.8;
-            color: var(--text-dark);
-            opacity: 0.85;
+            line-height: 1.6;
+            color: var(--text-secondary);
         }
         .ai-list li:last-child { border: none; }
-        .ai-list li span:first-child { font-size: 14px; opacity: 0.6; }
+        .ai-list li span:first-child { font-size: 14px; }
 
         /* Quick Actions */
         .quick-actions {
@@ -223,8 +214,7 @@
         }
 
         .action-card {
-            background: var(--bg-dark);
-            background: var(--bg-dark);
+            background: var(--bg-card);
             border-radius: var(--radius-md);
             padding: 18px;
             text-align: center;
@@ -240,8 +230,7 @@
 
         /* Card */
         .card {
-            background: var(--bg-dark);
-            background: var(--bg-dark);
+            background: var(--bg-card);
             border-radius: var(--radius-md);
             padding: 20px;
             margin: 0 16px 14px;
@@ -278,8 +267,7 @@
 
         .flow-btn.selected {
             border-color: var(--accent);
-            background: var(--bg-dark);
-            background: var(--bg-dark);
+            background: var(--bg-card);
             color: var(--accent);
             font-weight: 500;
         }
@@ -307,8 +295,7 @@
 
         .mood-btn.selected {
             border-color: var(--accent);
-            background: var(--bg-dark);
-            background: var(--bg-dark);
+            background: var(--bg-card);
             color: var(--accent);
             transform: scale(1.02);
         }
@@ -356,8 +343,7 @@
         }
         .symptom-tag.selected {
             border-color: var(--accent);
-            background: var(--bg-dark);
-            background: var(--bg-dark);
+            background: var(--bg-card);
             color: var(--accent);
             font-weight: 500;
         }
@@ -397,8 +383,7 @@
 
         /* Calendar */
         .predict-card {
-            background: var(--bg-dark);
-            background: var(--bg-dark);
+            background: var(--bg-card);
             border-radius: var(--radius-md);
             padding: 24px;
             text-align: center;
@@ -410,8 +395,7 @@
         .predict-days { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
 
         .calendar-card {
-            background: var(--bg-dark);
-            background: var(--bg-dark);
+            background: var(--bg-card);
             border-radius: var(--radius-md);
             padding: 20px;
             margin: 0 16px 16px;
@@ -510,8 +494,7 @@
         }
 
         .stat-card {
-            background: var(--bg-dark);
-            background: var(--bg-dark);
+            background: var(--bg-card);
             border-radius: var(--radius-md);
             padding: 18px;
             text-align: center;
@@ -521,8 +504,7 @@
         .stat-label { font-size: 12px; color: var(--text-muted); }
 
         .record-item {
-            background: var(--bg-dark);
-            background: var(--bg-dark);
+            background: var(--bg-card);
             border-radius: var(--radius-md);
             padding: 14px;
             margin: 0 16px 10px;
@@ -546,8 +528,7 @@
 
         /* Knowledge */
         .know-card {
-            background: var(--bg-dark);
-            background: var(--bg-dark);
+            background: var(--bg-card);
             border-radius: var(--radius-md);
             padding: 18px;
             margin: 0 16px 14px;
@@ -614,8 +595,7 @@
         }
         .modal-overlay.show { display: flex; }
         .modal {
-            background: var(--bg-dark);
-            background: var(--bg-dark);
+            background: var(--bg-card);
             border-radius: var(--radius-lg);
             padding: 22px;
             width: 100%;
