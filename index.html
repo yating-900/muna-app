@@ -89,6 +89,144 @@
             color: var(--text-secondary);
         }
 
+
+        /* Home Page - Diary Style */
+        .home-section {
+            padding: 24px 28px 40px;
+        }
+
+        .greeting {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 48px;
+            letter-spacing: 0.8px;
+            text-transform: lowercase;
+        }
+
+        .main-status {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .phase-title {
+            font-family: var(--font-serif);
+            font-size: 42px;
+            font-weight: 400;
+            color: var(--text);
+            letter-spacing: 4px;
+            margin-bottom: 6px;
+        }
+
+        .day-count {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .phase-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .prediction {
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            line-height: 1.6;
+        }
+
+        .section-divider {
+            width: 36px;
+            height: 1px;
+            background: var(--divider);
+            margin: 0 auto 20px;
+        }
+
+        .section-title {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        .today-section {
+            margin-bottom: 32px;
+        }
+
+        .quick-btn {
+            display: block;
+            width: 100%;
+            padding: 14px 0;
+            border: none;
+            background: transparent;
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-align: center;
+            cursor: pointer;
+            border-bottom: 1px solid var(--divider);
+            font-family: inherit;
+            font-weight: 400;
+        }
+        .quick-btn:last-child {
+            border-bottom: none;
+        }
+        .quick-btn:hover {
+            color: var(--text);
+        }
+
+        .ai-suggestions {
+            margin-bottom: 40px;
+        }
+
+        .ai-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--divider);
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .ai-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Quick Actions - Minimal */
+        .quick-actions {
+            display: flex;
+            justify-content: center;
+            gap: 36px;
+            margin-bottom: 36px;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            font-size: 11px;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 6px 12px;
+            font-family: inherit;
+            letter-spacing: 0.5px;
+        }
+        .action-btn:hover {
+            color: var(--text);
+        }
+
+        /* Hide old card elements on home */
+        #page-home .status-card, 
+        #page-home .ai-card, 
+        #page-home .card, 
+        #page-home .quick-actions .action-card {
+            display: none !important;
+        }
+
+
         /* Page Container */
         .page { 
             display: none; 
