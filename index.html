@@ -1390,47 +1390,56 @@
         }
 
         function renderCalendar() {
-            const y = currentMonth.getFullYear();
-            const m = currentMonth.getMonth();
-            document.getElementById('calTitle').textContent = y + '年' + (m+1) + '月';
+            try {
+                const y = currentMonth.getFullYear();
+                const m = currentMonth.getMonth();
+                document.getElementById('calTitle').textContent = y + '年' + (m+1) + '月';
 
-            const first = new Date(y, m, 1).getDay();
-            const days = new Date(y, m+1, 0).getDate();
-            const today = new Date();
+                const first = new Date(y, m, 1).getDay();
+                const days = new Date(y, m+1, 0).getDate();
+                const today = new Date();
 
-            let html = '日一二三四五六'.split('').map(d => `<div class="cal-day-header">${d}</div>`).join('');
-            for (let i = 0; i < first; i++) html += '<div></div>';
+                let html = '日一二三四五六'.split('').map(d => `<div class="cal-day-header">${d}</div>`).join('');
+                for (let i = 0; i < first; i++) html += '<div></div>';
 
-            for (let d = 1; d <= days; d++) {
-                const date = new Date(y, m, d);
-                const isToday = date.toDateString() === today.toDateString();
-                let cls = 'cal-day';
-                if (isToday) cls += ' today';
+                for (let d = 1; d <= days; d++) {
+                    const date = new Date(y, m, d);
+                    const isToday = date.toDateString() === today.toDateString();
+                    let cls = 'cal-day';
+                    if (isToday) cls += ' today';
 
-                userData.periodRecords.forEach(p => {
-                    const s = new Date(p.start);
-                    const e = p.end ? new Date(p.end) : (p.ongoing ? today : null);
-                    if (e && date >= s && date <= e) cls += p.flow === 'heavy' ? ' period-heavy' : ' period';
-                });
+                    // Mark period days
+                    if (userData.periodRecords && userData.periodRecords.length) {
+                        userData.periodRecords.forEach(p => {
+                            const s = new Date(p.start);
+                            const e = p.end ? new Date(p.end) : (p.ongoing ? today : null);
+                            if (e && date >= s && date <= e) cls += p.flow === 'heavy' ? ' period-heavy' : ' period';
+                        });
 
-                if (userData.periodRecords.length) {
-                    const last = getLastPeriod();
-                    const s = new Date(last.start);
-                    const daysSince = Math.floor((date - s) / (1000*60*60*24));
-                    const dic = daysSince % userData.cycleLength;
-                    if (dic === 14) cls += ' ovulation';
-                    else if (dic > 10 && dic < 17 && dic !== 14) cls += ' fertile';
+                        // Mark fertile window
+                        const last = getLastPeriod();
+                        if (last) {
+                            const s = new Date(last.start);
+                            const daysSince = Math.floor((date - s) / (1000*60*60*24));
+                            const dic = daysSince % userData.cycleLength;
+                            if (dic === 14) cls += ' ovulation';
+                            else if (dic > 10 && dic < 17 && dic !== 14) cls += ' fertile';
 
-                    const nextS = new Date(s);
-                    nextS.setDate(nextS.getDate() + userData.cycleLength);
-                    const nextE = new Date(nextS);
-                    nextE.setDate(nextE.getDate() + userData.periodLength);
-                    if (date >= nextS && date <= nextE && !cls.includes('period')) cls += ' predicted-period';
+                            // Mark predicted period
+                            const nextS = new Date(s);
+                            nextS.setDate(nextS.getDate() + userData.cycleLength);
+                            const nextE = new Date(nextS);
+                            nextE.setDate(nextE.getDate() + userData.periodLength);
+                            if (date >= nextS && date <= nextE && !cls.includes('period')) cls += ' predicted-period';
+                        }
+                    }
+
+                    html += `<div class="${cls}">${d}</div>`;
                 }
-
-                html += `<div class="${cls}">${d}</div>`;
+                document.getElementById('calGrid').innerHTML = html;
+            } catch(e) {
+                console.error('Calendar error:', e);
             }
-            document.getElementById('calGrid').innerHTML = html;
         }
 
         // Settings
