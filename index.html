@@ -122,42 +122,22 @@
             color: var(--text-dark);
         }
 
-        .main-count {
-            text-align: center;
-            padding: 10px 0 16px;
-        }
-        .count-value {
+        .phase-info h2 { 
             font-family: var(--font-serif);
-            font-size: 48px;
+            font-size: 22px; 
             font-weight: 500;
+            margin-bottom: 2px; 
             color: var(--text-dark);
-            line-height: 1;
         }
-        .count-label {
-            font-size: 13px;
+        .phase-info p { 
+            font-size: 13px; 
             color: var(--text-dark);
             opacity: 0.7;
-            margin-top: 6px;
-        }
-        .phase-tag {
-            text-align: center;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-dark);
-            padding: 8px 16px;
-            background: var(--bg-dark-secondary);
-            border-radius: 16px;
-            display: inline-block;
-            margin: 0 auto 16px;
-            display: block;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .status-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 8px;
         }
 
@@ -737,11 +717,13 @@
     <div class="page active" id="page-home">
         <!-- Status Card -->
         <div class="status-card">
-            <div class="main-count">
-                <div class="count-value" id="mainCount">--</div>
-                <div class="count-label" id="mainCountLabel">距月经开始</div>
+            <div class="phase-header">
+                <div class="phase-icon" id="phaseIcon">・</div>
+                <div class="phase-info">
+                    <h2 id="phaseName">卵泡期</h2>
+                    <p id="phaseDesc">身体准备排卵，适合轻度运动</p>
+                </div>
             </div>
-            <div class="phase-tag" id="phaseName">卵泡期</div>
             <div class="status-grid">
                 <div class="status-item">
                     <div class="label">下次经期</div>
@@ -750,6 +732,10 @@
                 <div class="status-item">
                     <div class="label">周期第</div>
                     <div class="value" id="dayInCycle">--</div>
+                </div>
+                <div class="status-item">
+                    <div class="label">状态</div>
+                    <div class="value" id="periodStatus">未记录</div>
                 </div>
             </div>
         </div>
@@ -1190,34 +1176,38 @@
             const today = new Date();
             const days = Math.floor((today - start) / (1000*60*60*24));
             const dayInCycle = days % userData.cycleLength + 1;
+            const daysUntilNext = userData.cycleLength - days;
 
-            let phase;
+            let phase, status;
             
             if (last.ongoing || days < userData.periodLength) {
                 phase = '经期';
-                document.getElementById('mainCount').textContent = '第' + (days + 1) + '天';
-                document.getElementById('mainCountLabel').textContent = '月经进行中';
+                status = '第' + (days + 1) + '天';
+                document.getElementById('phaseName').textContent = '距月经开始';
+                document.getElementById('phaseDesc').textContent = '月经进行中';
             } else if (dayInCycle <= 14) {
                 phase = '卵泡期';
-                document.getElementById('mainCount').textContent = (userData.cycleLength - days) + '天';
-                document.getElementById('mainCountLabel').textContent = '距月经开始';
+                status = phase;
+                document.getElementById('phaseName').textContent = '距月经开始还有';
+                document.getElementById('phaseDesc').textContent = daysUntilNext + '天';
             } else if (dayInCycle <= 16) {
                 phase = '排卵期';
-                document.getElementById('mainCount').textContent = (userData.cycleLength - days) + '天';
-                document.getElementById('mainCountLabel').textContent = '距月经开始';
+                status = phase;
+                document.getElementById('phaseName').textContent = '距月经开始还有';
+                document.getElementById('phaseDesc').textContent = daysUntilNext + '天';
             } else {
                 phase = '黄体期';
-                document.getElementById('mainCount').textContent = (userData.cycleLength - days) + '天';
-                document.getElementById('mainCountLabel').textContent = '距月经开始';
+                status = phase;
+                document.getElementById('phaseName').textContent = '距月经开始还有';
+                document.getElementById('phaseDesc').textContent = daysUntilNext + '天';
             }
 
-            document.getElementById('phaseName').textContent = phase;
             document.getElementById('dayInCycle').textContent = dayInCycle + ' / ' + userData.cycleLength;
+            document.getElementById('periodStatus').textContent = status;
 
             const next = new Date(start);
             next.setDate(next.getDate() + userData.cycleLength);
             document.getElementById('nextPeriod').textContent = next.toLocaleDateString('zh-CN', { month: 'short', day: 'numeric' });
-        }
         }
 
         function updateAI() {
