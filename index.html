@@ -705,7 +705,7 @@
     <!-- Header -->
     <header class="header">
         <div class="header-main">
-            <div class="logo">Muna</div>
+            <div class="logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>Muna</div>
             <button class="icon-btn" onclick="showSettings()">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <circle cx="12" cy="12" r="3"></circle>
@@ -739,6 +739,30 @@
                     <div class="label">状态</div>
                     <div class="value" id="periodStatus">未记录</div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <div class="action-card" onclick="showPeriodModal()">
+                <div class="icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 6v6l4 2"></path>
+                    </svg>
+                </div>
+                <div class="text">记录经期</div>
+            </div>
+            <div class="action-card" onclick="switchToCalendar()">
+                <div class="icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                </div>
+                <div class="text">每日打卡</div>
             </div>
         </div>
 
@@ -776,10 +800,38 @@
                 <div class="text">每日打卡</div>
             </div>
         </div>
+    <!-- Calendar Page -->
+    <div class="page" id="page-calendar">
+        <div class="predict-card">
+            <div class="predict-label">下次经期</div>
+            <div class="predict-date" id="predictDate">--</div>
+            <div class="predict-days" id="predictDays">记录更多数据，预测更准</div>
+        </div>
+
+        <div class="calendar-card">
+            <div class="cal-header">
+                <span class="cal-title" id="calTitle">2026年3月</span>
+                <div class="cal-nav">
+                    <button onclick="changeMonth(-1)">‹</button>
+                    <button onclick="changeMonth(1)">›</button>
+                </div>
+            </div>
+            <div class="cal-grid" id="calGrid"></div>
+            <div class="cal-legend">
+                <div class="legend-dot"><span style="background: var(--accent-light)"></span>经期</div>
+                <div class="legend-dot"><span style="background: #D4C5A8"></span>排卵日</div>
+                <div class="legend-dot"><span style="background: rgba(212,197,168,0.4)"></span>易孕期</div>
+                <div class="legend-dot"><span style="border:1.5px dashed var(--accent-light)"></span>预测</div>
+            </div>
+        </div>
 
         <!-- Daily Check-in -->
         <div class="card" id="checkinSection">
-            <div class="card-title">今日记录</div>
+            <div class="card-title">记录</div>
+            
+            <div class="form-group" style="margin-bottom: 16px;">
+                <input type="date" class="form-input" id="checkinDate" onchange="loadCheckinDate()">
+            </div>
 
             <div class="card-subtitle">经期流量</div>
             <div class="flow-grid" style="margin-bottom: 14px;">
@@ -825,18 +877,7 @@
                 </button>
             </div>
 
-            <div class="card-subtitle">能量水平</div>
-            <div class="energy-bar">
-                <div class="energy-header">
-                    <span>能量</span>
-                    <span id="energyValue">3/5</span>
-                </div>
-                <div class="energy-track">
-                    <div class="energy-fill" id="energyFill" style="width: 60%"></div>
-                </div>
-            </div>
-
-            <div class="card-subtitle" style="margin-top: 14px;">身体症状</div>
+            <div class="card-subtitle">身体症状</div>
             <div class="symptom-grid">
                 <button class="symptom-tag" data-symptom="cramp" onclick="toggleSymptom(this)">腹痛</button>
                 <button class="symptom-tag" data-symptom="headache" onclick="toggleSymptom(this)">头痛</button>
@@ -848,41 +889,11 @@
                 <button class="symptom-tag" data-symptom="nausea" onclick="toggleSymptom(this)">恶心</button>
                 <button class="symptom-tag" data-symptom="insomnia" onclick="toggleSymptom(this)">失眠</button>
                 <button class="symptom-tag" data-symptom="crave" onclick="toggleSymptom(this)">食欲大增</button>
+                <button class="symptom-tag" data-symptom="sex" onclick="toggleSymptom(this)">有性行为</button>
             </div>
 
-            <div class="card-subtitle" style="margin-top: 14px;">备注</div>
-            <textarea class="notes-input" id="notes" rows="2" placeholder="今天有什么想记录的..."></textarea>
-
-            <button class="btn-primary" onclick="saveToday()">保存</button>
+            <button class="btn-primary" onclick="saveCheckin()">保存</button>
         </div>
-    </div>
-
-    <!-- Calendar Page -->
-    <div class="page" id="page-calendar">
-        <div class="predict-card">
-            <div class="predict-label">下次经期</div>
-            <div class="predict-date" id="predictDate">--</div>
-            <div class="predict-days" id="predictDays">记录更多数据，预测更准</div>
-        </div>
-
-        <div class="calendar-card">
-            <div class="cal-header">
-                <span class="cal-title" id="calTitle">2026年3月</span>
-                <div class="cal-nav">
-                    <button onclick="changeMonth(-1)">‹</button>
-                    <button onclick="changeMonth(1)">›</button>
-                </div>
-            </div>
-            <div class="cal-grid" id="calGrid"></div>
-            <div class="cal-legend">
-                <div class="legend-dot"><span style="background: var(--accent-light)"></span>经期</div>
-                <div class="legend-dot"><span style="background: #D4C5A8"></span>排卵日</div>
-                <div class="legend-dot"><span style="background: rgba(212,197,168,0.4)"></span>易孕期</div>
-                <div class="legend-dot"><span style="border:1.5px dashed var(--accent-light)"></span>预测</div>
-            </div>
-        </div>
-
-        <button class="btn-primary" onclick="showPeriodModal()">+ 添加记录</button>
     </div>
 
     <!-- Records Page -->
@@ -1049,6 +1060,8 @@
             loadData();
             updateUI();
             renderCalendar();
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('checkinDate').value = today;
         });
 
         // Navigation
@@ -1063,9 +1076,55 @@
             if (page === 'records') renderRecords();
         }
 
-        function scrollToCheckin() {
-            switchPage('home');
-            document.getElementById('checkinSection').scrollIntoView({ behavior: 'smooth' });
+        function switchToCalendar() {
+            switchPage('calendar');
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('checkinDate').value = today;
+            loadCheckinDate();
+        }
+
+        function loadCheckinDate() {
+            const date = document.getElementById('checkinDate').value;
+            if (!date) return;
+            
+            // Reset selections
+            document.querySelectorAll('.flow-btn').forEach(b => b.classList.remove('selected'));
+            document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('selected'));
+            document.querySelectorAll('.symptom-tag').forEach(b => b.classList.remove('selected'));
+            
+            // Load existing data
+            const record = userData.records.find(r => r.date === date);
+            if (record) {
+                if (record.flow) {
+                    document.querySelector(`.flow-btn[data-flow="${record.flow}"]`)?.classList.add('selected');
+                }
+                record.moods?.forEach(m => {
+                    document.querySelector(`.mood-btn[data-mood="${m}"]`)?.classList.add('selected');
+                });
+                Object.keys(record.symptoms || {}).forEach(s => {
+                    document.querySelector(`.symptom-tag[data-symptom="${s}"]`)?.classList.add('selected');
+                });
+            }
+            
+            todayData = record || { flow: null, moods: [], symptoms: {}, energy: 3, notes: '' };
+            todayData.date = date;
+        }
+
+        function saveCheckin() {
+            const date = document.getElementById('checkinDate').value;
+            if (!date) return showToast('请选择日期');
+            
+            todayData.date = date;
+            todayData.flow = todayData.flow || null;
+            todayData.moods = todayData.moods || [];
+            todayData.symptoms = todayData.symptoms || {};
+            
+            const i = userData.records.findIndex(r => r.date === date);
+            if (i >= 0) userData.records[i] = {...todayData};
+            else userData.records.push({...todayData});
+
+            saveData();
+            showToast('保存成功');
         }
 
         // Period Modal
