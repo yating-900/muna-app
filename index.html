@@ -3,33 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌸 Muna - 女性健康管家</title>
+    <title>Muna - 女性健康管家</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
-    <meta name="theme-color" content="#A78BFA">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="theme-color" content="#EF    <link rel="preconnect" href="https://EAE2">
+fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #FF7B9C;
-            --primary-light: #FFB5C5;
-            --primary-dark: #E85A7A;
-            --accent: #FFE4E9;
-            --bg: #FFF5F7;
-            --bg-card: #FFFFFF;
-            --text: #2D2D2D;
-            --text-secondary: #6B6B6B;
-            --text-muted: #A0A0A0;
-            --divider: #F5E5E8;
-            --success: #7CB982;
-            --warning: #FFB347;
-            --danger: #FF7B7B;
-            --shadow: 0 4px 20px rgba(255, 123, 156, 0.1);
-            --shadow-lg: 0 8px 30px rgba(255, 123, 156, 0.15);
-            --radius-lg: 24px;
-            --radius-md: 18px;
-            --radius-sm: 12px;
+            --bg: #EFEAE2;
+            --bg-card: #E6DED3;
+            --bg-card-alt: #DDD4C8;
+            --text: #3B332D;
+            --text-secondary: #8C8075;
+            --text-muted: #A89E93;
+            --accent: #C98C8C;
+            --accent-light: #D4ADAD;
+            --divider: #D8D0C4;
+            --shadow: 0 2px 12px rgba(59, 51, 45, 0.06);
+            --shadow-lg: 0 4px 20px rgba(59, 51, 45, 0.08);
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --radius-sm: 10px;
+            --font-serif: 'Noto Serif SC', 'Songti SC', serif;
+            --font-sans: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         * { 
@@ -37,26 +35,27 @@
             padding: 0; 
             box-sizing: border-box; 
             -webkit-tap-highlight-color: transparent;
-            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: var(--font-sans);
+            font-weight: 400;
         }
 
         body {
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
-            padding-bottom: 100px;
+            padding-bottom: 90px;
             overscroll-behavior: none;
             -webkit-font-smoothing: antialiased;
         }
 
         /* Header */
         .header {
-            background: var(--bg-card);
-            padding: 16px 20px;
+            background: var(--bg);
+            padding: 14px 20px;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid var(--divider);
+            border-bottom: 1px solid transparent;
         }
 
         .header-main {
@@ -66,25 +65,25 @@
         }
 
         .logo {
-            font-size: 22px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #E85A7A, #FF8FAB);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 20px;
+            font-weight: 500;
+            font-family: var(--font-serif);
+            color: var(--text);
+            letter-spacing: 2px;
         }
 
         .icon-btn {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            background: var(--bg);
+            background: var(--bg-card);
             border: none;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--text-secondary);
         }
 
         /* Page Container */
@@ -96,12 +95,11 @@
 
         /* Status Card */
         .status-card {
-            background: linear-gradient(135deg, #FF8FAB 0%, #FFB5C5 50%, #FFE4E9 100%);
+            background: var(--bg-card);
             border-radius: var(--radius-lg);
             padding: 28px 24px;
-            margin: 20px;
-            color: white;
-            box-shadow: var(--shadow-lg);
+            margin: 16px;
+            box-shadow: var(--shadow);
         }
 
         .phase-header {
@@ -112,36 +110,37 @@
         }
 
         .phase-icon {
-            width: 60px;
-            height: 60px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
+            font-size: 22px;
+            background: var(--bg-card-alt);
+            color: var(--text-secondary);
         }
 
         .phase-info h2 { 
-            font-size: 24px; 
-            font-weight: 700; 
+            font-family: var(--font-serif);
+            font-size: 22px; 
+            font-weight: 500;
             margin-bottom: 2px; 
+            color: var(--text);
         }
         .phase-info p { 
-            font-size: 14px; 
-            opacity: 0.9; 
+            font-size: 13px; 
+            color: var(--text-secondary); 
         }
 
         .status-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            gap: 8px;
         }
 
         .status-item {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
+            background: var(--bg-card-alt);
             padding: 14px 10px;
             border-radius: var(--radius-sm);
             text-align: center;
@@ -149,12 +148,14 @@
 
         .status-item .label { 
             font-size: 11px; 
-            opacity: 0.8; 
+            color: var(--text-muted); 
             margin-bottom: 4px; 
+            letter-spacing: 0.5px;
         }
         .status-item .value { 
-            font-size: 16px; 
-            font-weight: 600; 
+            font-size: 15px; 
+            font-weight: 500; 
+            color: var(--text);
         }
 
         /* AI Card */
@@ -162,7 +163,7 @@
             background: var(--bg-card);
             border-radius: var(--radius-md);
             padding: 20px;
-            margin: 0 20px 20px;
+            margin: 0 16px 16px;
             box-shadow: var(--shadow);
         }
 
@@ -173,15 +174,16 @@
             margin-bottom: 14px;
         }
 
-        .ai-header span:first-child { font-size: 18px; }
-        .ai-header span { font-weight: 600; font-size: 14px; color: var(--text); }
+        .ai-header span:first-child { font-size: 16px; }
+        .ai-header span { font-weight: 500; font-size: 14px; color: var(--text); }
         .ai-badge {
-            background: linear-gradient(135deg, #FF8FAB, #FF7B9C);
-            color: white;
+            border: 1px solid var(--accent);
+            color: var(--accent);
             font-size: 10px;
             padding: 3px 10px;
             border-radius: 10px;
             margin-left: auto;
+            font-weight: 500;
         }
 
         .ai-list { list-style: none; }
@@ -191,94 +193,66 @@
             display: flex;
             align-items: flex-start;
             gap: 10px;
-            font-size: 14px;
-            line-height: 1.5;
+            font-size: 13px;
+            line-height: 1.6;
             color: var(--text-secondary);
         }
         .ai-list li:last-child { border: none; }
-        .ai-list li span:first-child { font-size: 16px; }
+        .ai-list li span:first-child { font-size: 14px; }
 
         /* Quick Actions */
         .quick-actions {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            padding: 0 20px;
-            margin-bottom: 20px;
+            gap: 10px;
+            padding: 0 16px;
+            margin-bottom: 16px;
         }
 
         .action-card {
             background: var(--bg-card);
             border-radius: var(--radius-md);
-            padding: 20px;
+            padding: 18px;
             text-align: center;
             box-shadow: var(--shadow);
             cursor: pointer;
             transition: all 0.2s;
-            border: 2px solid transparent;
+            border: 1px solid transparent;
         }
 
         .action-card:active { transform: scale(0.98); }
-        .action-card .icon { font-size: 28px; margin-bottom: 8px; }
-        .action-card .text { font-size: 14px; font-weight: 500; color: var(--text); }
+        .action-card .icon { font-size: 22px; margin-bottom: 6px; color: var(--text-secondary); }
+        .action-card .text { font-size: 13px; font-weight: 400; color: var(--text-secondary); }
 
         /* Card */
         .card {
             background: var(--bg-card);
             border-radius: var(--radius-md);
             padding: 20px;
-            margin: 0 20px 16px;
+            margin: 0 16px 14px;
             box-shadow: var(--shadow);
         }
 
         .card-title {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 16px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 14px;
             color: var(--text);
         }
 
         .card-subtitle {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-muted);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         /* Flow Buttons */
-        .flow-grid { display: flex; gap: 10px; }
+        .flow-grid { display: flex; gap: 8px; }
         .flow-btn {
             flex: 1;
-            padding: 12px 6px;
-            border: 2px solid var(--divider);
-            background: var(--bg-card);
-            border-radius: var(--radius-sm);
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-align: center;
-            color: var(--text-secondary);
-        }
-
-        .flow-btn.selected {
-            border-color: var(--primary);
-            background: linear-gradient(135deg, rgba(255, 123, 156, 0.1), rgba(255, 123, 156, 0.05));
-            color: var(--primary-dark);
-            font-weight: 600;
-        }
-
-        .flow-btn .emoji { font-size: 22px; display: block; margin-bottom: 4px; }
-
-        /* Mood Grid */
-        .mood-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-        }
-
-        .mood-btn {
-            padding: 12px 6px;
-            border: 2px solid var(--divider);
-            background: var(--bg-card);
+            padding: 10px 4px;
+            border: 1.5px solid var(--divider);
+            background: var(--bg-card-alt);
             border-radius: var(--radius-sm);
             font-size: 11px;
             cursor: pointer;
@@ -287,35 +261,63 @@
             color: var(--text-secondary);
         }
 
+        .flow-btn.selected {
+            border-color: var(--accent);
+            background: var(--bg-card);
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .flow-btn .emoji { font-size: 18px; display: block; margin-bottom: 3px; }
+
+        /* Mood Grid */
+        .mood-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .mood-btn {
+            padding: 10px 4px;
+            border: 1.5px solid var(--divider);
+            background: var(--bg-card-alt);
+            border-radius: var(--radius-sm);
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
         .mood-btn.selected {
-            border-color: var(--primary);
-            background: linear-gradient(135deg, rgba(255, 123, 156, 0.1), rgba(255, 123, 156, 0.05));
-            color: var(--primary-dark);
+            border-color: var(--accent);
+            background: var(--bg-card);
+            color: var(--accent);
             transform: scale(1.02);
         }
 
-        .mood-btn .emoji { font-size: 24px; display: block; margin-bottom: 4px; }
+        .mood-btn .emoji { font-size: 20px; display: block; margin-bottom: 3px; }
 
         /* Energy */
-        .energy-bar { margin-top: 16px; }
+        .energy-bar { margin-top: 14px; }
         .energy-header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 13px;
+            margin-bottom: 8px;
+            font-size: 12px;
             color: var(--text-muted);
         }
         .energy-track {
-            height: 8px;
-            background: var(--divider);
-            border-radius: 4px;
+            height: 6px;
+            background: var(--bg-card-alt);
+            border-radius: 3px;
             position: relative;
             overflow: hidden;
         }
         .energy-fill {
             height: 100%;
-            background: linear-gradient(90deg, #FF7B9C, #FF8FAB);
-            border-radius: 4px;
+            background: var(--accent);
+            border-radius: 3px;
             transition: width 0.3s;
         }
 
@@ -326,71 +328,73 @@
             flex-wrap: wrap;
         }
         .symptom-tag {
-            padding: 8px 14px;
+            padding: 7px 12px;
             border: 1.5px solid var(--divider);
-            background: var(--bg-card);
-            border-radius: 20px;
-            font-size: 13px;
+            background: var(--bg-card-alt);
+            border-radius: 16px;
+            font-size: 12px;
             cursor: pointer;
             transition: all 0.2s;
             color: var(--text-secondary);
         }
         .symptom-tag.selected {
-            background: linear-gradient(135deg, #FF8FAB, #FF7B9C);
-            border-color: var(--primary);
-            color: white;
+            border-color: var(--accent);
+            background: var(--bg-card);
+            color: var(--accent);
             font-weight: 500;
         }
 
         /* Textarea */
         .notes-input {
             width: 100%;
-            padding: 14px;
-            border: 2px solid var(--divider);
+            padding: 12px;
+            border: 1.5px solid var(--divider);
             border-radius: var(--radius-sm);
-            font-size: 14px;
+            font-size: 13px;
             font-family: inherit;
             resize: none;
-            background: var(--bg);
+            background: var(--bg-card-alt);
             outline: none;
             transition: border-color 0.2s;
+            color: var(--text);
         }
-        .notes-input:focus { border-color: var(--primary-light); }
+        .notes-input::placeholder { color: var(--text-muted); }
+        .notes-input:focus { border-color: var(--accent-light); }
 
         /* Button */
         .btn-primary {
-            width: calc(100% - 40px);
-            margin: 20px;
-            padding: 16px;
-            background: linear-gradient(135deg, #FF8FAB 0%, #FF7B9C 100%);
+            width: calc(100% - 32px);
+            margin: 18px;
+            padding: 14px;
+            background: var(--text);
             border: none;
             border-radius: var(--radius-md);
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
+            color: var(--bg);
+            font-size: 14px;
+            font-weight: 500;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(255, 123, 156, 0.4);
             transition: all 0.2s;
         }
         .btn-primary:active { transform: scale(0.98); }
 
         /* Calendar */
         .predict-card {
-            background: linear-gradient(135deg, #EDE9FE 0%, #DDD6FE 100%);
+            background: var(--bg-card);
             border-radius: var(--radius-md);
             padding: 24px;
             text-align: center;
-            margin: 20px;
+            margin: 16px;
+            box-shadow: var(--shadow);
         }
-        .predict-label { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
-        .predict-date { font-size: 22px; font-weight: 700; color: var(--primary-dark); }
-        .predict-days { font-size: 14px; color: var(--text-secondary); margin-top: 6px; }
+        .predict-label { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+        .predict-date { font-size: 20px; font-weight: 500; color: var(--text); font-family: var(--font-serif); }
+        .predict-days { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
 
         .calendar-card {
             background: var(--bg-card);
             border-radius: var(--radius-md);
             padding: 20px;
-            margin: 0 20px 20px;
+            margin: 0 16px 16px;
             box-shadow: var(--shadow);
         }
 
@@ -398,32 +402,32 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
-        .cal-title { font-size: 18px; font-weight: 600; }
-        .cal-nav { display: flex; gap: 8px; }
+        .cal-title { font-size: 16px; font-weight: 500; font-family: var(--font-serif); }
+        .cal-nav { display: flex; gap: 6px; }
         .cal-nav button {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             border: none;
-            background: var(--bg);
-            font-size: 14px;
+            background: var(--bg-card-alt);
+            font-size: 12px;
             cursor: pointer;
+            color: var(--text-secondary);
         }
 
         .cal-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 4px;
+            gap: 3px;
         }
 
         .cal-day-header {
             text-align: center;
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-muted);
-            padding: 8px 0;
-            font-weight: 500;
+            padding: 6px 0;
         }
 
         .cal-day {
@@ -431,50 +435,49 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: 13px;
             border-radius: 50%;
             cursor: pointer;
             position: relative;
             transition: all 0.15s;
             color: var(--text);
         }
-        .cal-day:hover { background: var(--bg); }
+        .cal-day:hover { background: var(--bg-card-alt); }
         .cal-day.today { 
-            background: var(--primary); 
-            color: white; 
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(255, 123, 156, 0.4);
+            background: var(--text); 
+            color: var(--bg); 
+            font-weight: 500;
         }
         .cal-day.period { 
-            background: linear-gradient(135deg, #FF8FAB, #FF7B9C); 
+            background: var(--accent-light); 
             color: white; 
         }
-        .cal-day.period-heavy { background: #E85A7A; color: white; }
-        .cal-day.ovulation { background: #FFD166; }
-        .cal-day.fertile { background: rgba(255, 209, 102, 0.5); color: var(--text); }
+        .cal-day.period-heavy { background: var(--accent); color: white; }
+        .cal-day.ovulation { background: #D4C5A8; }
+        .cal-day.fertile { background: rgba(212, 197, 168, 0.4); color: var(--text); }
         .cal-day.predicted { 
-            border: 2px dashed var(--primary-light); 
-            background: rgba(255, 181, 197, 0.2);
+            border: 1.5px dashed var(--accent-light); 
+            background: transparent;
         }
         .cal-day.predicted-period { 
-            background: rgba(255, 123, 156, 0.2); 
-            border: 2px dotted var(--primary);
+            background: rgba(201, 140, 140, 0.15); 
+            border: 1.5px dotted var(--accent);
         }
 
         .cal-legend {
             display: flex;
-            gap: 14px;
+            gap: 12px;
             flex-wrap: wrap;
-            margin-top: 16px;
-            padding-top: 16px;
+            margin-top: 14px;
+            padding-top: 14px;
             border-top: 1px solid var(--divider);
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-muted);
         }
-        .legend-dot { display: flex; align-items: center; gap: 6px; }
+        .legend-dot { display: flex; align-items: center; gap: 5px; }
         .legend-dot span:first-child {
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
         }
 
@@ -482,58 +485,58 @@
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin: 0 20px 20px;
+            gap: 10px;
+            margin: 0 16px 16px;
         }
 
         .stat-card {
             background: var(--bg-card);
             border-radius: var(--radius-md);
-            padding: 20px;
+            padding: 18px;
             text-align: center;
             box-shadow: var(--shadow);
         }
-        .stat-value { font-size: 24px; font-weight: 700; color: var(--primary-dark); margin-bottom: 4px; }
-        .stat-label { font-size: 13px; color: var(--text-muted); }
+        .stat-value { font-size: 22px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+        .stat-label { font-size: 12px; color: var(--text-muted); }
 
         .record-item {
             background: var(--bg-card);
             border-radius: var(--radius-md);
-            padding: 16px;
-            margin: 0 20px 12px;
+            padding: 14px;
+            margin: 0 16px 10px;
             box-shadow: var(--shadow);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .record-info h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
-        .record-info p { font-size: 13px; color: var(--text-muted); }
-        .record-actions { display: flex; gap: 8px; }
+        .record-info h4 { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+        .record-info p { font-size: 12px; color: var(--text-muted); }
+        .record-actions { display: flex; gap: 6px; }
         .record-btn {
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 11px;
             cursor: pointer;
             border: none;
         }
-        .record-btn.edit { background: var(--bg); color: var(--text-secondary); }
-        .record-btn.del { background: #FEE2E2; color: var(--danger); }
+        .record-btn.edit { background: var(--bg-card-alt); color: var(--text-secondary); }
+        .record-btn.del { background: #E8D8D8; color: var(--accent); }
 
         /* Knowledge */
         .know-card {
             background: var(--bg-card);
             border-radius: var(--radius-md);
-            padding: 20px;
-            margin: 0 20px 16px;
+            padding: 18px;
+            margin: 0 16px 14px;
             box-shadow: var(--shadow);
         }
-        .know-card h3 { font-size: 15px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-        .know-card p { font-size: 14px; line-height: 1.6; color: var(--text-secondary); }
+        .know-card h3 { font-size: 14px; margin-bottom: 10px; font-weight: 500; }
+        .know-card p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
         .know-list { list-style: none; }
         .know-list li {
-            padding: 12px 0;
+            padding: 10px 0;
             border-bottom: 1px solid var(--divider);
-            font-size: 14px;
+            font-size: 13px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -547,11 +550,11 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: var(--bg-card);
+            background: var(--bg);
             display: flex;
             justify-content: space-around;
-            padding: 12px 0 28px;
-            box-shadow: 0 -4px 24px rgba(0,0,0,0.06);
+            padding: 10px 0 24px;
+            box-shadow: 0 -2px 12px rgba(59, 51, 45, 0.04);
             z-index: 100;
             border-top: 1px solid var(--divider);
         }
@@ -559,17 +562,17 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 3px;
             background: none;
             border: none;
-            font-size: 11px;
+            font-size: 10px;
             color: var(--text-muted);
             cursor: pointer;
-            padding: 8px 16px;
+            padding: 6px 14px;
             transition: all 0.2s;
         }
-        .nav-item.active { color: var(--primary); }
-        .nav-item .icon { font-size: 22px; }
+        .nav-item.active { color: var(--text); }
+        .nav-item .icon { font-size: 20px; }
 
         /* Modal */
         .modal-overlay {
@@ -579,9 +582,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.4);
+            background: rgba(59, 51, 45, 0.3);
             z-index: 200;
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(2px);
             align-items: center;
             justify-content: center;
             padding: 20px;
@@ -590,108 +593,107 @@
         .modal {
             background: var(--bg-card);
             border-radius: var(--radius-lg);
-            padding: 24px;
+            padding: 22px;
             width: 100%;
-            max-width: 360px;
+            max-width: 340px;
             max-height: 85vh;
             overflow-y: auto;
-            animation: slideUp 0.3s ease;
+            animation: slideUp 0.25s ease;
         }
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
-        .modal-title { font-size: 18px; font-weight: 600; }
+        .modal-title { font-size: 16px; font-weight: 500; font-family: var(--font-serif); }
         .modal-close { 
-            background: none; border: none; font-size: 24px; 
+            background: none; border: none; font-size: 22px; 
             cursor: pointer; color: var(--text-muted); 
-            width: 32px; height: 32px;
+            width: 28px; height: 28px;
         }
 
         /* Form */
-        .form-group { margin-bottom: 16px; }
-        .form-label { display: block; font-size: 14px; margin-bottom: 8px; font-weight: 500; color: var(--text); }
+        .form-group { margin-bottom: 14px; }
+        .form-label { display: block; font-size: 13px; margin-bottom: 6px; font-weight: 500; color: var(--text); }
         .form-input {
             width: 100%;
-            padding: 12px 14px;
-            border: 2px solid var(--divider);
+            padding: 10px 12px;
+            border: 1.5px solid var(--divider);
             border-radius: var(--radius-sm);
             font-size: 14px;
             outline: none;
-            background: var(--bg);
+            background: var(--bg-card-alt);
             transition: border-color 0.2s;
             font-family: inherit;
+            color: var(--text);
         }
-        .form-input:focus { border-color: var(--primary-light); }
+        .form-input:focus { border-color: var(--accent-light); }
 
         /* Toggle */
-        .toggle-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        .toggle-label { font-size: 14px; color: var(--text); }
+        .toggle-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .toggle-label { font-size: 13px; color: var(--text); }
         .toggle {
-            width: 48px;
-            height: 28px;
+            width: 42px;
+            height: 24px;
             background: var(--divider);
-            border-radius: 14px;
+            border-radius: 12px;
             position: relative;
             cursor: pointer;
             transition: background 0.3s;
         }
-        .toggle.active { background: var(--primary); }
+        .toggle.active { background: var(--accent); }
         .toggle::after {
             content: '';
             position: absolute;
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             background: white;
             border-radius: 50%;
             top: 2px;
             left: 2px;
             transition: transform 0.3s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .toggle.active::after { transform: translateX(20px); }
+        .toggle.active::after { transform: translateX(18px); }
 
         /* Toast */
         .toast {
             position: fixed;
-            top: 20px;
+            top: 18px;
             left: 50%;
             transform: translateX(-50%) translateY(-100px);
             background: var(--text);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 12px;
-            font-size: 14px;
+            color: var(--bg);
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 13px;
             z-index: 300;
             transition: transform 0.3s;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
         }
         .toast.show { transform: translateX(-50%) translateY(0); }
 
         /* Empty */
         .empty {
             text-align: center;
-            padding: 40px 20px;
+            padding: 36px 16px;
             color: var(--text-muted);
         }
-        .empty .icon { font-size: 40px; margin-bottom: 10px; }
+        .empty .icon { font-size: 32px; margin-bottom: 8px; }
 
-        @media (max-width: 380px) {
-            .status-card { margin: 16px; padding: 24px 20px; }
-            .quick-actions { padding: 0 16px; }
-            .card { margin: 0 16px 12px; }
-            .btn-primary { margin: 16px; width: calc(100% - 32px); }
-            .predict-card { margin: 16px; }
-            .calendar-card { margin: 0 16px 16px; }
-            .stats-grid { margin: 0 16px 16px; }
-            .record-item { margin: 0 16px 10px; }
-            .know-card { margin: 0 16px 12px; }
+        @media (max-width: 360px) {
+            .status-card { margin: 12px; padding: 24px 20px; }
+            .quick-actions { padding: 0 12px; }
+            .card { margin: 0 12px 10px; }
+            .btn-primary { margin: 14px; width: calc(100% - 28px); }
+            .predict-card { margin: 12px; }
+            .calendar-card { margin: 0 12px 14px; }
+            .stats-grid { margin: 0 12px 14px; }
+            .record-item { margin: 0 12px 8px; }
+            .know-card { margin: 0 12px 10px; }
         }
     </style>
 </head>
@@ -699,8 +701,13 @@
     <!-- Header -->
     <header class="header">
         <div class="header-main">
-            <div class="logo">🌸 Muna</div>
-            <button class="icon-btn" onclick="showSettings()">⚙️</button>
+            <div class="logo">Muna</div>
+            <button class="icon-btn" onclick="showSettings()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                </svg>
+            </button>
         </div>
     </header>
 
@@ -709,7 +716,7 @@
         <!-- Status Card -->
         <div class="status-card">
             <div class="phase-header">
-                <div class="phase-icon" id="phaseIcon">🌸</div>
+                <div class="phase-icon" id="phaseIcon">・</div>
                 <div class="phase-info">
                     <h2 id="phaseName">卵泡期</h2>
                     <p id="phaseDesc">身体准备排卵，适合轻度运动</p>
@@ -734,79 +741,90 @@
         <!-- AI Card -->
         <div class="ai-card">
             <div class="ai-header">
-                <span>🤖</span>
-                <span>今日建议</span>
+                <span>建议</span>
                 <span class="ai-badge">AI</span>
             </div>
             <ul class="ai-list" id="aiList">
-                <li><span>🥗</span> 记录经期，获得个性化建议</li>
+                <li><span>·</span> 记录经期，获得个性化建议</li>
             </ul>
         </div>
 
         <!-- Quick Actions -->
         <div class="quick-actions">
             <div class="action-card" onclick="showPeriodModal()">
-                <div class="icon">🩸</div>
+                <div class="icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 6v6l4 2"></path>
+                    </svg>
+                </div>
                 <div class="text">记录经期</div>
             </div>
             <div class="action-card" onclick="scrollToCheckin()">
-                <div class="icon">📝</div>
+                <div class="icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                </div>
                 <div class="text">每日打卡</div>
             </div>
         </div>
 
         <!-- Daily Check-in -->
         <div class="card" id="checkinSection">
-            <div class="card-title">📝 今日打卡</div>
+            <div class="card-title">今日记录</div>
 
             <div class="card-subtitle">经期流量</div>
-            <div class="flow-grid" style="margin-bottom: 16px;">
+            <div class="flow-grid" style="margin-bottom: 14px;">
                 <button class="flow-btn" data-flow="none" onclick="selectFlow(this)">
-                    <span class="emoji">💧</span>无
+                    <span class="emoji">○</span>无
                 </button>
                 <button class="flow-btn" data-flow="light" onclick="selectFlow(this)">
-                    <span class="emoji">🫗</span>轻微
+                    <span class="emoji">˙</span>轻微
                 </button>
                 <button class="flow-btn" data-flow="medium" onclick="selectFlow(this)">
-                    <span class="emoji">💧</span>中等
+                    <span class="emoji">◦</span>中等
                 </button>
                 <button class="flow-btn" data-flow="heavy" onclick="selectFlow(this)">
-                    <span class="emoji">🩸</span>大量
+                    <span class="emoji">●</span>大量
                 </button>
             </div>
 
             <div class="card-subtitle">今日心情</div>
-            <div class="mood-grid" style="margin-bottom: 16px;">
+            <div class="mood-grid" style="margin-bottom: 14px;">
                 <button class="mood-btn" data-mood="happy" onclick="selectMood(this)">
-                    <span class="emoji">😄</span>开心
+                    <span class="emoji">・</span>开心
                 </button>
                 <button class="mood-btn" data-mood="calm" onclick="selectMood(this)">
-                    <span class="emoji">😌</span>平静
+                    <span class="emoji">・</span>平静
                 </button>
                 <button class="mood-btn" data-mood="anxious" onclick="selectMood(this)">
-                    <span class="emoji">😰</span>焦虑
+                    <span class="emoji">・</span>焦虑
                 </button>
                 <button class="mood-btn" data-mood="irritable" onclick="selectMood(this)">
-                    <span class="emoji">😤</span>烦躁
+                    <span class="emoji">・</span>烦躁
                 </button>
                 <button class="mood-btn" data-mood="sad" onclick="selectMood(this)">
-                    <span class="emoji">😢</span>低落
+                    <span class="emoji">・</span>低落
                 </button>
                 <button class="mood-btn" data-mood="sensitive" onclick="selectMood(this)">
-                    <span class="emoji">🥺</span>敏感
+                    <span class="emoji">・</span>敏感
                 </button>
                 <button class="mood-btn" data-mood="energetic" onclick="selectMood(this)">
-                    <span class="emoji">⚡</span>充沛
+                    <span class="emoji">・</span>充沛
                 </button>
                 <button class="mood-btn" data-mood="tired" onclick="selectMood(this)">
-                    <span class="emoji">😴</span>疲惫
+                    <span class="emoji">・</span>疲惫
                 </button>
             </div>
 
             <div class="card-subtitle">能量水平</div>
             <div class="energy-bar">
                 <div class="energy-header">
-                    <span>能量值</span>
+                    <span>能量</span>
                     <span id="energyValue">3/5</span>
                 </div>
                 <div class="energy-track">
@@ -814,7 +832,7 @@
                 </div>
             </div>
 
-            <div class="card-subtitle" style="margin-top: 16px;">身体症状</div>
+            <div class="card-subtitle" style="margin-top: 14px;">身体症状</div>
             <div class="symptom-grid">
                 <button class="symptom-tag" data-symptom="cramp" onclick="toggleSymptom(this)">腹痛</button>
                 <button class="symptom-tag" data-symptom="headache" onclick="toggleSymptom(this)">头痛</button>
@@ -828,17 +846,17 @@
                 <button class="symptom-tag" data-symptom="crave" onclick="toggleSymptom(this)">食欲大增</button>
             </div>
 
-            <div class="card-subtitle" style="margin-top: 16px;">备注</div>
+            <div class="card-subtitle" style="margin-top: 14px;">备注</div>
             <textarea class="notes-input" id="notes" rows="2" placeholder="今天有什么想记录的..."></textarea>
 
-            <button class="btn-primary" onclick="saveToday()">💾 保存今日记录</button>
+            <button class="btn-primary" onclick="saveToday()">保存</button>
         </div>
     </div>
 
     <!-- Calendar Page -->
     <div class="page" id="page-calendar">
         <div class="predict-card">
-            <div class="predict-label">下次经期预测</div>
+            <div class="predict-label">下次经期</div>
             <div class="predict-date" id="predictDate">--</div>
             <div class="predict-days" id="predictDays">记录更多数据，预测更准</div>
         </div>
@@ -847,20 +865,20 @@
             <div class="cal-header">
                 <span class="cal-title" id="calTitle">2026年3月</span>
                 <div class="cal-nav">
-                    <button onclick="changeMonth(-1)">◀</button>
-                    <button onclick="changeMonth(1)">▶</button>
+                    <button onclick="changeMonth(-1)">‹</button>
+                    <button onclick="changeMonth(1)">›</button>
                 </div>
             </div>
             <div class="cal-grid" id="calGrid"></div>
             <div class="cal-legend">
-                <div class="legend-dot"><span style="background: linear-gradient(135deg, #FF8FAB, #FF7B9C)"></span>经期</div>
-                <div class="legend-dot"><span style="background: #FFD166"></span>排卵日</div>
-                <div class="legend-dot"><span style="background: rgba(255, 209, 102, 0.5)"></span>易孕期</div>
-                <div class="legend-dot"><span style="border: 2px dashed #FFB5C5"></span>预测</div>
+                <div class="legend-dot"><span style="background: var(--accent-light)"></span>经期</div>
+                <div class="legend-dot"><span style="background: #D4C5A8"></span>排卵日</div>
+                <div class="legend-dot"><span style="background: rgba(212,197,168,0.4)"></span>易孕期</div>
+                <div class="legend-dot"><span style="border:1.5px dashed var(--accent-light)"></span>预测</div>
             </div>
         </div>
 
-        <button class="btn-primary" onclick="showPeriodModal()">+ 添加经期记录</button>
+        <button class="btn-primary" onclick="showPeriodModal()">+ 添加记录</button>
     </div>
 
     <!-- Records Page -->
@@ -877,9 +895,9 @@
         </div>
 
         <div class="card">
-            <div class="card-title">📋 经期历史</div>
+            <div class="card-title">经期历史</div>
             <div id="periodRecords">
-                <div class="empty"><div class="icon">📝</div><p>暂无记录</p></div>
+                <div class="empty"><div class="icon">－</div><p>暂无记录</p></div>
             </div>
         </div>
     </div>
@@ -887,27 +905,27 @@
     <!-- Learn Page -->
     <div class="page" id="page-learn">
         <div class="know-card">
-            <h3>🌸 月经周期</h3>
+            <h3>月经周期</h3>
             <p>月经周期是由下丘脑-垂体-卵巢轴调控的生理过程。一般为21-35天，平均28天。</p>
         </div>
 
         <div class="know-card">
-            <h3>📚 四周期详解</h3>
+            <h3>四周期详解</h3>
             <ul class="know-list">
-                <li onclick="showKnow('menstruation')"><span>🩸 经期</span><span>›</span></li>
-                <li onclick="showKnow('follicular')"><span>🌸 卵泡期</span><span>›</span></li>
-                <li onclick="showKnow('ovulation')"><span>🥚 排卵期</span><span>›</span></li>
-                <li onclick="showKnow('luteal')"><span>🌙 黄体期</span><span>›</span></li>
+                <li onclick="showKnow('menstruation')"><span>经期</span><span>›</span></li>
+                <li onclick="showKnow('follicular')"><span>卵泡期</span><span>›</span></li>
+                <li onclick="showKnow('ovulation')"><span>排卵期</span><span>›</span></li>
+                <li onclick="showKnow('luteal')"><span>黄体期</span><span>›</span></li>
             </ul>
         </div>
 
         <div class="know-card">
-            <h3>💡 健康贴士</h3>
+            <h3>健康贴士</h3>
             <ul class="know-list">
-                <li onclick="showKnow('diet')"><span>🥗 饮食</span><span>›</span></li>
-                <li onclick="showKnow('exercise')"><span>🏃 运动</span><span>›</span></li>
-                <li onclick="showKnow('sleep')"><span>😴 睡眠</span><span>›</span></li>
-                <li onclick="showKnow('mood')"><span>🧘 情绪</span><span>›</span></li>
+                <li onclick="showKnow('diet')"><span>饮食</span><span>›</span></li>
+                <li onclick="showKnow('exercise')"><span>运动</span><span>›</span></li>
+                <li onclick="showKnow('sleep')"><span>睡眠</span><span>›</span></li>
+                <li onclick="showKnow('mood')"><span>情绪</span><span>›</span></li>
             </ul>
         </div>
     </div>
@@ -915,16 +933,46 @@
     <!-- Bottom Nav -->
     <nav class="bottom-nav">
         <button class="nav-item active" onclick="switchPage('home')">
-            <span class="icon">🏠</span><span>首页</span>
+            <span class="icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </span>
+            <span>首页</span>
         </button>
         <button class="nav-item" onclick="switchPage('calendar')">
-            <span class="icon">📅</span><span>日历</span>
+            <span class="icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+            </span>
+            <span>日历</span>
         </button>
         <button class="nav-item" onclick="switchPage('records')">
-            <span class="icon">📋</span><span>记录</span>
+            <span class="icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+            </span>
+            <span>记录</span>
         </button>
         <button class="nav-item" onclick="switchPage('learn')">
-            <span class="icon">📚</span><span>科普</span>
+            <span class="icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+            </span>
+            <span>科普</span>
         </button>
     </nav>
 
@@ -932,7 +980,7 @@
     <div class="modal-overlay" id="periodModal">
         <div class="modal">
             <div class="modal-header">
-                <span class="modal-title">🩸 记录经期</span>
+                <span class="modal-title">记录经期</span>
                 <button class="modal-close" onclick="closePeriodModal()">×</button>
             </div>
             <div class="form-group">
@@ -955,7 +1003,7 @@
     <div class="modal-overlay" id="settingsModal">
         <div class="modal">
             <div class="modal-header">
-                <span class="modal-title">⚙️ 设置</span>
+                <span class="modal-title">设置</span>
                 <button class="modal-close" onclick="closeSettings()">×</button>
             </div>
             <div class="form-group">
@@ -982,7 +1030,7 @@
     </div>
 
     <!-- Toast -->
-    <div class="toast" id="toast">保存成功！</div>
+    <div class="toast" id="toast">保存成功</div>
 
     <script>
         // Data
@@ -1058,7 +1106,7 @@
             saveData();
             updateUI();
             closePeriodModal();
-            showToast(editingId ? '已更新！' : '记录成功！');
+            showToast(editingId ? '已更新' : '记录成功');
         }
 
         // Flow
@@ -1103,7 +1151,7 @@
             else userData.records.push({...todayData});
 
             saveData();
-            showToast('保存成功！💕');
+            showToast('保存成功');
             updateUI();
         }
 
@@ -1130,16 +1178,16 @@
             let phase, icon, desc, status;
             
             if (last.ongoing || days < userData.periodLength) {
-                phase = '经期'; icon = '🩸'; desc = '注意保暖，适当休息';
+                phase = '经期'; icon = '·'; desc = '注意保暖，适当休息';
                 status = '经期中';
             } else if (dayInCycle <= 14) {
-                phase = '卵泡期'; icon = '🌸'; desc = '身体准备排卵';
+                phase = '卵泡期'; icon = '·'; desc = '身体准备排卵';
                 status = '非经期';
             } else if (dayInCycle <= 16) {
-                phase = '排卵期'; icon = '🥚'; desc = '易孕期';
+                phase = '排卵期'; icon = '·'; desc = '易孕期';
                 status = '排卵期';
             } else {
-                phase = '黄体期'; icon = '🌙'; desc = '可能会有情绪波动';
+                phase = '黄体期'; icon = '·'; desc = '可能会有情绪波动';
                 status = '黄体期';
             }
 
@@ -1165,24 +1213,24 @@
 
             const recs = {
                 menstruation: [
-                    ['🥗', '多吃富含铁的食物，如红肉、菠菜'],
-                    ['🧘', '适合瑜伽、散步等轻度运动'],
-                    ['💤', '保证充足睡眠，注意保暖']
+                    ['·', '建议多吃富含铁的食物，如红肉、菠菜'],
+                    ['·', '适合瑜伽、散步等轻度运动'],
+                    ['·', '保证充足睡眠，注意保暖']
                 ],
                 follicular: [
-                    ['🥗', '多吃富含维生素E的食物，如坚果'],
-                    ['🏃', '适合跑步、游泳等有氧运动'],
-                    ['💧', '多喝水，保持身体水分']
+                    ['·', '多吃富含维生素E的食物，如坚果'],
+                    ['·', '适合跑步、游泳等有氧运动'],
+                    ['·', '多喝水，保持身体水分']
                 ],
                 ovulation: [
-                    ['🥗', '多吃富含锌的食物，如海鲜'],
-                    ['🏃', '适度运动，保持活力'],
-                    ['🌡️', '备孕最佳时机']
+                    ['·', '多吃富含锌的食物，如海鲜'],
+                    ['·', '适度运动，保持活力'],
+                    ['·', '备孕最佳时机']
                 ],
                 luteal: [
-                    ['🥗', '减少盐分摄入，预防水肿'],
-                    ['🧘', '适合冥想、瑜伽放松'],
-                    ['💤', '保证睡眠，缓解疲劳']
+                    ['·', '减少盐分摄入，预防水肿'],
+                    ['·', '适合冥想、瑜伽放松'],
+                    ['·', '保证睡眠，缓解疲劳']
                 ]
             };
 
@@ -1230,7 +1278,7 @@
         function renderRecords() {
             const container = document.getElementById('periodRecords');
             if (!userData.periodRecords.length) {
-                container.innerHTML = '<div class="empty"><div class="icon">📝</div><p>暂无记录</p></div>';
+                container.innerHTML = '<div class="empty"><div class="icon">－</div><p>暂无记录</p></div>';
                 return;
             }
 
@@ -1349,14 +1397,14 @@
 
         // Knowledge
         const knowData = {
-            menstruation: '<h3>🩸 经期</h3><p style="margin-top:12px;line-height:1.8;">子宫内膜脱落期，持续3-7天。<br><br><strong>建议：</strong>注意保暖，多吃含铁食物，适度运动</p>',
-            follicular: '<h3>🌸 卵泡期</h3><p style="margin-top:12px;line-height:1.8;">雌激素上升，能量升高。<br><br><strong>建议：</strong>适合有氧运动，补充叶酸</p>',
-            ovulation: '<h3>🥚 排卵期</h3><p style="margin-top:12px;line-height:1.8;">受孕最佳时机。<br><br><strong>建议：</strong>备孕同房最佳期</p>',
-            luteal: '<h3>🌙 黄体期</h3><p style="margin-top:12px;line-height:1.8;">可能出现PMS、情绪波动。<br><br><strong>建议：</strong>减少盐分，瑜伽冥想</p>',
-            diet: '<h3>🥗 饮食</h3><p style="margin-top:12px;line-height:1.8;"><strong>推荐：</strong>红肉、菠菜、红枣、姜茶<br><br><strong>避免：</strong>生冷、咖啡因</p>',
-            exercise: '<h3>🏃 运动</h3><p style="margin-top:12px;line-height:1.8;"><strong>经期：</strong>散步、瑜伽<br><br><strong>非经期：</strong>跑步、游泳</p>',
-            sleep: '<h3>😴 睡眠</h3><p style="margin-top:12px;line-height:1.8;">保持7-8小时睡眠，尽量11点前入睡</p>',
-            mood: '<h3>🧘 情绪</h3><p style="margin-top:12px;line-height:1.8;">记录情绪变化，运动冥想有帮助</p>'
+            menstruation: '<h3>经期</h3><p style="margin-top:10px;line-height:1.7;">子宫内膜脱落期，持续3-7天。<br><br><strong>建议：</strong>注意保暖，多吃含铁食物，适度运动</p>',
+            follicular: '<h3>卵泡期</h3><p style="margin-top:10px;line-height:1.7;">雌激素上升，能量升高。<br><br><strong>建议：</strong>适合有氧运动，补充叶酸</p>',
+            ovulation: '<h3>排卵期</h3><p style="margin-top:10px;line-height:1.7;">受孕最佳时机。<br><br><strong>建议：</strong>备孕同房最佳期</p>',
+            luteal: '<h3>黄体期</h3><p style="margin-top:10px;line-height:1.7;">可能出现PMS、情绪波动。<br><br><strong>建议：</strong>减少盐分，瑜伽冥想</p>',
+            diet: '<h3>饮食</h3><p style="margin-top:10px;line-height:1.7;"><strong>推荐：</strong>红肉、菠菜、红枣、姜茶<br><br><strong>避免：</strong>生冷、咖啡因</p>',
+            exercise: '<h3>运动</h3><p style="margin-top:10px;line-height:1.7;"><strong>经期：</strong>散步、瑜伽<br><br><strong>非经期：</strong>跑步、游泳</p>',
+            sleep: '<h3>睡眠</h3><p style="margin-top:10px;line-height:1.7;">保持7-8小时睡眠，尽量11点前入睡</p>',
+            mood: '<h3>情绪</h3><p style="margin-top:10px;line-height:1.7;">记录情绪变化，运动冥想有帮助</p>'
         };
 
         function showKnow(topic) {
@@ -1373,7 +1421,7 @@
             const t = document.getElementById('toast');
             t.textContent = msg;
             t.classList.add('show');
-            setTimeout(() => t.classList.remove('show'), 2800);
+            setTimeout(() => t.classList.remove('show'), 2500);
         }
 
         // Storage
