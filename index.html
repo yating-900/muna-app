@@ -15,6 +15,9 @@
             --bg: #EFEAE2;
             --bg-card: #E6DED3;
             --bg-card-alt: #DDD4C8;
+            --bg-dark: #3F2E23;
+            --bg-dark-secondary: #4A372A;
+            --text-dark: #F2EEE6;
             --text: #3B332D;
             --text-secondary: #8C8075;
             --text-muted: #A89E93;
@@ -158,11 +161,11 @@
             color: var(--text);
         }
 
-        /* AI Card */
+        /* AI Card - Dark Theme */
         .ai-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-md);
-            padding: 20px;
+            background: var(--bg-dark);
+            border-radius: 22px;
+            padding: 24px;
             margin: 0 16px 16px;
             box-shadow: var(--shadow);
         }
@@ -171,11 +174,11 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
 
         .ai-header span:first-child { font-size: 16px; }
-        .ai-header span { font-weight: 500; font-size: 14px; color: var(--text); }
+        .ai-header span { font-weight: 500; font-size: 14px; color: var(--text-dark); font-family: var(--font-serif); }
         .ai-badge {
             border: 1px solid var(--accent);
             color: var(--accent);
@@ -188,17 +191,18 @@
 
         .ai-list { list-style: none; }
         .ai-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--divider);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(242, 238, 230, 0.1);
             display: flex;
             align-items: flex-start;
             gap: 10px;
             font-size: 13px;
-            line-height: 1.6;
-            color: var(--text-secondary);
+            line-height: 1.8;
+            color: var(--text-dark);
+            opacity: 0.85;
         }
         .ai-list li:last-child { border: none; }
-        .ai-list li span:first-child { font-size: 14px; }
+        .ai-list li span:first-child { font-size: 14px; opacity: 0.6; }
 
         /* Quick Actions */
         .quick-actions {
