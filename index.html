@@ -41,7 +41,7 @@
         }
 
         body {
-            background: var(--bg);
+            background: linear-gradient(180deg, #F5F0E8 0%, #EFEAE2 50%, #E8E2D8 100%);
             color: var(--text);
             min-height: 100vh;
             padding-bottom: 90px;
@@ -51,7 +51,7 @@
 
         /* Header */
         .header {
-            background: var(--bg);
+            background: transparent;
             padding: 14px 20px;
             position: sticky;
             top: 0;
@@ -719,90 +719,40 @@
 
     <!-- Home Page -->
     <div class="page active" id="page-home">
-        <!-- Status Card -->
-        <div class="status-card">
-            <div class="phase-header">
-                <div class="phase-icon" id="phaseIcon">・</div>
-                <div class="phase-info">
-                    <h2 id="phaseName">卵泡期</h2>
-                    <p id="phaseDesc">身体准备排卵，适合轻度运动</p>
-                </div>
+        <div class="home-section">
+            <div class="greeting" id="greeting">Good evening</div>
+            
+            <div class="main-status">
+                <div class="phase-title" id="phaseName">卵泡期</div>
+                <div class="day-count" id="dayInCycle">Day 12</div>
+                <div class="phase-desc" id="phaseDesc">身体进入恢复阶段</div>
             </div>
-            <div class="status-grid">
-                <div class="status-item">
-                    <div class="label">下次经期</div>
-                    <div class="value" id="nextPeriod">--</div>
-                </div>
-                <div class="status-item">
-                    <div class="label">周期第</div>
-                    <div class="value" id="dayInCycle">--</div>
-                </div>
-                <div class="status-item">
-                    <div class="label">状态</div>
-                    <div class="value" id="periodStatus">未记录</div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Quick Actions -->
-        <div class="quick-actions">
-            <div class="action-card" onclick="showPeriodModal()">
-                <div class="icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="M12 6v6l4 2"></path>
-                    </svg>
-                </div>
-                <div class="text">记录经期</div>
+            <div class="prediction" id="prediction">
+                预计下次经期 3月14日
             </div>
-            <div class="action-card" onclick="switchToCalendar()">
-                <div class="icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                    </svg>
-                </div>
-                <div class="text">每日打卡</div>
-            </div>
-        </div>
 
-        <!-- AI Card -->
-        <div class="ai-card">
-            <div class="ai-header">
-                <span>建议</span>
-                <span class="ai-badge">AI</span>
-            </div>
-            <ul class="ai-list" id="aiList">
-                <li><span>·</span> 记录经期，获得个性化建议</li>
-            </ul>
-        </div>
+            <div class="section-divider"></div>
 
-        <!-- Quick Actions -->
-        <div class="quick-actions">
-            <div class="action-card" onclick="showPeriodModal()">
-                <div class="icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="M12 6v6l4 2"></path>
-                    </svg>
-                </div>
-                <div class="text">记录经期</div>
+            <div class="quick-actions">
+                <button class="action-btn" onclick="showPeriodModal()">记录经期</button>
+                <button class="action-btn" onclick="switchToCalendar()">打卡</button>
             </div>
-            <div class="action-card" onclick="scrollToCheckin()">
-                <div class="icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                    </svg>
-                </div>
-                <div class="text">每日打卡</div>
+
+            <div class="section-title">Today</div>
+            <div class="today-section">
+                <button class="quick-btn" onclick="switchToCalendar()">记录你的状态</button>
+            </div>
+
+            <div class="section-title">Suggestions</div>
+            <div class="ai-suggestions" id="aiList">
+                <div class="ai-item">今天适合轻度运动，如散步或瑜伽</div>
+                <div class="ai-item">多喝水，保持身体水分</div>
+                <div class="ai-item">注意保暖，尤其是腹部</div>
             </div>
         </div>
-    <!-- Calendar Page -->
+    </div>
+
     <div class="page" id="page-calendar">
         <div class="predict-card">
             <div class="predict-label">下次经期</div>
@@ -1062,10 +1012,8 @@
             loadData();
             updateUI();
             renderCalendar();
-            calculateStats();
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('checkinDate').value = today;
-            loadCheckinDate();
         });
 
         // Navigation
@@ -1235,49 +1183,60 @@
 
         function updatePhase() {
             const last = getLastPeriod();
-            if (!last) return;
+            if (!last) {
+                document.getElementById('greeting').textContent = '欢迎使用 Muna';
+                document.getElementById('phaseName').textContent = '记录你的经期';
+                document.getElementById('dayInCycle').textContent = '';
+                document.getElementById('phaseDesc').textContent = '点击下方记录开始';
+                document.getElementById('prediction').textContent = '';
+                return;
+            }
 
             const start = new Date(last.start);
             const today = new Date();
             const days = Math.floor((today - start) / (1000*60*60*24));
             const dayInCycle = days % userData.cycleLength + 1;
-            const daysUntilNext = userData.cycleLength - days;
+            
+            // Update greeting based on time
+            const hour = new Date().getHours();
+            let greeting = 'Good morning';
+            if (hour >= 12 && hour < 18) greeting = 'Good afternoon';
+            else if (hour >= 18) greeting = 'Good evening';
+            document.getElementById('greeting').textContent = greeting;
 
-            let phase, status;
+            let phase, desc;
             
             if (last.ongoing || days < userData.periodLength) {
                 phase = '经期';
-                status = '第' + (days + 1) + '天';
-                document.getElementById('phaseName').textContent = '距月经开始';
-                document.getElementById('phaseDesc').textContent = '月经进行中';
+                desc = '身体正在休息';
             } else if (dayInCycle <= 14) {
                 phase = '卵泡期';
-                status = phase;
-                document.getElementById('phaseName').textContent = '距月经开始还有';
-                document.getElementById('phaseDesc').textContent = daysUntilNext + '天';
+                desc = '身体进入恢复阶段';
             } else if (dayInCycle <= 16) {
                 phase = '排卵期';
-                status = phase;
-                document.getElementById('phaseName').textContent = '距月经开始还有';
-                document.getElementById('phaseDesc').textContent = daysUntilNext + '天';
+                desc = '易孕期';
             } else {
                 phase = '黄体期';
-                status = phase;
-                document.getElementById('phaseName').textContent = '距月经开始还有';
-                document.getElementById('phaseDesc').textContent = daysUntilNext + '天';
+                desc = '身体在准备下一次经期';
             }
 
-            document.getElementById('dayInCycle').textContent = dayInCycle + ' / ' + userData.cycleLength;
-            document.getElementById('periodStatus').textContent = status;
+            document.getElementById('phaseName').textContent = phase;
+            document.getElementById('dayInCycle').textContent = 'Day ' + dayInCycle;
+            document.getElementById('phaseDesc').textContent = desc;
 
+            // Prediction
             const next = new Date(start);
             next.setDate(next.getDate() + userData.cycleLength);
-            document.getElementById('nextPeriod').textContent = next.toLocaleDateString('zh-CN', { month: 'short', day: 'numeric' });
+            const nextMonth = next.toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' });
+            document.getElementById('prediction').textContent = '预计下次经期 ' + nextMonth;
         }
 
         function updateAI() {
             const last = getLastPeriod();
-            if (!last) return;
+            if (!last) {
+                document.getElementById('aiList').innerHTML = '<div class="ai-item">记录经期后，将获得个性化建议</div>';
+                return;
+            }
 
             const start = new Date(last.start);
             const today = new Date();
@@ -1286,24 +1245,24 @@
 
             const recs = {
                 menstruation: [
-                    ['·', '建议多吃富含铁的食物，如红肉、菠菜'],
-                    ['·', '适合瑜伽、散步等轻度运动'],
-                    ['·', '保证充足睡眠，注意保暖']
+                    '今天适合休息，给身体充电',
+                    '可以喝些温热的红枣茶',
+                    '轻柔的瑜伽或散步会让身体更舒服'
                 ],
                 follicular: [
-                    ['·', '多吃富含维生素E的食物，如坚果'],
-                    ['·', '适合跑步、游泳等有氧运动'],
-                    ['·', '多喝水，保持身体水分']
+                    '今天适合轻度运动，如散步或瑜伽',
+                    '多喝水，保持身体水分',
+                    '身体状态不错，可以尝试新活动'
                 ],
                 ovulation: [
-                    ['·', '多吃富含锌的食物，如海鲜'],
-                    ['·', '适度运动，保持活力'],
-                    ['·', '备孕最佳时机']
+                    '今天是易孕期',
+                    '如果计划备孕，这是好时机',
+                    '保持心情愉悦很重要'
                 ],
                 luteal: [
-                    ['·', '减少盐分摄入，预防水肿'],
-                    ['·', '适合冥想、瑜伽放松'],
-                    ['·', '保证睡眠，缓解疲劳']
+                    '身体在准备下一次经期',
+                    '保证充足睡眠，缓解疲劳',
+                    '减少咖啡因摄入可能会更舒服'
                 ]
             };
 
@@ -1314,7 +1273,7 @@
             else key = 'luteal';
 
             document.getElementById('aiList').innerHTML = recs[key].map(r => 
-                `<li><span>${r[0]}</span>${r[1]}</li>`
+                `<div class="ai-item">${r}</div>`
             ).join('');
         }
 
